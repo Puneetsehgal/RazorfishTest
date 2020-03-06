@@ -1,0 +1,22 @@
+  <!--Diagram View-->
+<div id="diagram">
+  <h2 class="text-center pad20">Data Transfer</h2>
+  <div class="chart-container">
+    <!-- Doghnut Diagram-->
+    <canvas id="doughnut" class="chart chart-doughnut" chart-click="onClick" chart-data="data" chart-labels="labels" width="290" height="290"></canvas>
+    <div class="canvas-value">
+      <small class="red">{{homeContent.numFiles}} files</small>
+      <p class="extra-big">{{homeContent.fileSize}}</p>
+    </div>
+  </div>
+<!--Labels-->
+  <div class="labels-container padT20">
+    <div ng-repeat="diagram in homeContent.diagram.labels | limitTo:3"  class="col-xs-4 labels no-pad">
+      <div>
+        <p>{{diagram | lowercase}}</p>
+        <p class="big">{{homeContent.diagram.data[$index]}}%</p>
+      </div>
+    </div>
+    <div class="cf"></div>
+  </div>
+</div>

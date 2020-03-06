@@ -1,0 +1,168 @@
+/***************************************
+Body CSS
+****************************************/
+body {
+  background: url(../images/back.png) no-repeat center;
+  background-size: cover;
+}
+/***************************************
+Global Font set
+****************************************/
+p, small, li, a, h2{
+  font-family: $font;
+  font-weight: 600;
+}
+.container {
+  padding: 0;
+}
+/***************************************
+UI-view change Animation
+****************************************/
+.my-element.ng-enter {
+  animation: fadeIn 1s;
+}
+
+/***************************************
+View Container
+****************************************/
+.view-container {
+  overflow: hidden;
+  max-width: 320px;
+  height: 568px;
+  margin: 30px auto 0;
+  box-shadow: 0 0 10px rgba($black,0.7);
+  border-radius: 5px;
+  .tab{
+    div{
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border:1px solid $white;
+      text-align: center;
+      a{
+        display: block;
+        height: 54px;
+        line-height: 54px;
+        color:$white;
+        text-decoration: none !important;
+        &:hover, &.active{
+          background-color: $white;
+          color:$brown;
+        }
+      }
+    }
+  }
+  /***************************************
+  UI-view
+  ****************************************/
+  .view{
+    background-color: $white;
+    height: 447px;
+  }
+  /***************************************
+  Diagram View
+  ****************************************/
+  #diagram {
+    h2 {
+      font-size: 16px;
+      margin-top: 0px;
+      text-transform: uppercase;
+      font-weight: 800;
+      color:$brown;
+    }
+    .chart-container {
+      position: relative;
+      canvas {
+        margin: auto;
+        display: block;
+      }
+      .canvas-value {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        height: 80px;
+        .extra-big {
+          font-size: 40px;
+          line-height: 40px;
+          font-weight: 800;
+          color:$brown;
+        }
+        small {
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+    }
+    .labels-container {
+      .labels {
+        background-color: $lightbrown;
+        text-align: center;
+        padding: 10px;
+        color: $brown;
+        position: relative;
+        &:before {
+          content: "";
+          position: absolute;
+          height: 4px;
+          width: 100%;
+          top: 0;
+          left: 0;
+        }
+        &:first-child {
+          &:before {
+            background-color: $green;
+          }
+        }
+        &:nth-child(2) {
+          border-right: 1px solid $white;
+          border-left: 1px solid $white;
+          &:before {
+            background-color: $red;
+          }
+        }
+        &:nth-child(3) {
+          &:before {
+            background-color: $yellow;
+          }
+        }
+        p {
+          margin: 0;
+          &.big {
+            font-size: 23px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+  /***************************************
+  View Container Footer
+  ****************************************/
+  .footer-menu-container {
+    background-color: $brown;
+    color: $white;
+    height: 63px;
+    text-align: center;
+    border-top: 1px solid #64584c;
+    .footer-menu {
+      cursor:pointer;
+      padding: 10px 0;
+      &:hover {
+        background-color: #64584c;
+      }
+    }
+    i {
+      &:before {
+        font-size: 25px;
+      }
+    }
+    p {
+      text-transform: uppercase;
+      margin-top: 5px;
+      font-size: 11px;
+    }
+  }
+}

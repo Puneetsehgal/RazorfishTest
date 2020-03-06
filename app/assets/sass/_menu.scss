@@ -1,0 +1,184 @@
+/***************************************
+Menu CSS
+****************************************/
+header {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  z-index: 99999;
+  nav{
+    background-color: $white;
+    ul{
+      li{
+        position: relative;
+        @include transition(all, 0.3s, ease-in-out);
+        font-size: 16px;
+        cursor: pointer;
+        height: 80px;
+        line-height: 80px;
+        i{
+          color:$brown;
+          margin-right: 10px;
+          position: relative;
+          top:2px;
+          @include transition(all, 0.3s, ease-in-out);
+          &:before{
+            font-size: 24px;
+          }
+        }
+        a{
+          color:$brown;
+          position: relative;
+          text-transform: uppercase;
+          &:hover, &:focus{
+              text-decoration: none;
+              color:$brown;
+          }
+        }
+        &:after{
+          content:'';
+          width: 0px;
+          height: 4px;
+          background-color: $green;
+          position: absolute;
+          bottom:0;
+          left:0;
+          @include transition(width, 0.3s, ease-in-out);
+        }
+        &:hover{
+          background-color: $lightbrown;
+          i{
+            color: $green;
+          }
+            &:after{
+              width: 100%;
+            }
+        }
+        span{
+          background: $red;
+          border-radius: 50%;
+          width: 15px;
+          height: 15px;
+          line-height: 15px;
+          display: block;
+          position: absolute;
+          top:-12px;
+          right:-15px;
+          text-align:center;
+          font-size: 10px;
+          color:$white;
+          @include transition(all, 0.2s, ease-in-out);
+          @include transform(scale(1));
+          &.expand{
+              @include transform(scale(1.5));
+          }
+        }
+      }
+      &:after {
+        content: '';
+        width: 100%;
+        display: block;
+        clear:both;
+      }
+    }
+  }
+}
+/***************************************
+Media Query Max Width 767px
+****************************************/
+@media (max-width : 767px){
+  header {
+  margin-top: 0;
+  height: 100px;
+  nav {
+    position: fixed;
+    height: 100%;
+    width: 80%;
+    background-color: $white;
+    padding-top: 20px;
+    left: -80%;
+    top: 0;
+    @include transition(all, .3s, ease-in-out);
+    &.open {
+      left: 0;
+    }
+    ul {
+      li {
+          padding: 0px 25px;
+        a {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+/***************************************
+ Mobile Hamburger
+****************************************/
+  .hamburger {
+    width: 30px;
+    position: absolute;
+    height: 20px;
+    right: 1rem;
+    top: 30px;
+    cursor: pointer;
+    z-index: 999999;
+    .hamburger-inner {
+      width: 30px;
+      height: 5px;
+      background-color: $white;
+      position: relative;
+      top: 0;
+      @include transition(all, 0.5s, ease-in-out);
+      &:after,
+      &:before {
+        content: '';
+        width: 100%;
+        height: 5px;
+        background-color: $white;
+        position: absolute;
+        left: 0;
+        @include transition(all, 0.5s, ease-in-out);
+      }
+      &:before {
+        top: 16px;
+      }
+      &:after {
+        top: 8px;
+      }
+    }
+    &.open {
+      .hamburger-inner {
+        @include transform(rotate(45deg));
+        &:before {
+          top: 0;
+          @include transform(rotate(-89deg));
+        }
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+/***************************************
+Media Query Min Width 768px
+****************************************/
+@media (min-width : 768px){
+  header {
+    nav{
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba($black,0.7);
+      max-width: 650px;
+      margin: auto;
+      ul{
+        li{
+          width: 25%;
+          text-align: center;
+          float:left;
+          padding: 0px 10px;
+        }
+      }
+    }
+  }
+}
